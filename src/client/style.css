@@ -168,7 +168,7 @@ body {
 
 .join-green {
    position: absolute;
-   left: calc(75vw + 25px);
+   left: calc(50vw + 25px);
    top: calc(60vh - 50px);
    height: 40px;
    background-color: #9fc776;
