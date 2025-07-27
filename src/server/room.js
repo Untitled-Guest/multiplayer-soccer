@@ -367,35 +367,30 @@ module.exports = class Room {
    changeTeam(id, team) {
       console.log(this.teams);
       this.update = true;
-      if (team === 'red') {
-         for (let i = 0; i < this.teams.red.length; i++) {
-            if (this.teams.red[i] === id) {
-               this.teams.red.splice(i, 1);
-               break;
-            }
-         }
-      } else if (team === 'blue') {
-         for (let i = 0; i < this.teams.blue.length; i++) {
-            if (this.teams.blue[i] === id) {
-               this.teams.blue.splice(i, 1);
-               break;
-            }
-         }
-      } else if (team === 'green') {
-         for (let i = 0; i < this.teams.green.length; i++) {
-            if (this.teams.green[i] === id) {
-               this.teams.green.splice(i, 1);
-               break;
-            }
-         }
-      } else if (team === 'yellow') {
-         for (let i = 0; i < this.teams.yellow.length; i++) {
-            if (this.teams.yellow[i] === id) {
-               this.teams.yellow.splice(i, 1);
-               break;
-            }
-         }
-      }
+	 for (let i = 0; i < this.teams.red.length; i++) {
+	    if (this.teams.red[i] === id) {
+	       this.teams.red.splice(i, 1);
+	       break;
+	    }
+	 }
+	 for (let i = 0; i < this.teams.blue.length; i++) {
+	    if (this.teams.blue[i] === id) {
+	       this.teams.blue.splice(i, 1);
+	       break;
+	    }
+	 }
+	 for (let i = 0; i < this.teams.green.length; i++) {
+	    if (this.teams.green[i] === id) {
+	       this.teams.green.splice(i, 1);
+	       break;
+	    }
+	 }
+	 for (let i = 0; i < this.teams.yellow.length; i++) {
+	    if (this.teams.yellow[i] === id) {
+	       this.teams.yellow.splice(i, 1);
+	       break;
+	    }
+	 }
       console.log(this.teams);
       this.players[id].team = team;
       if (team === 'red') {
