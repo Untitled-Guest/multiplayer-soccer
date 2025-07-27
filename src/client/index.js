@@ -114,6 +114,8 @@ ref.leaveButton.addEventListener('mousedown', () => {
       send({ type: 'leave-room' });
       ref.joinRedButton.classList.remove('disabled');
       ref.joinBlueButton.classList.remove('disabled');
+      ref.joinGreenButton.classList.remove('disabled');
+      ref.joinYellowButton.classList.remove('disabled');
       ref.chatMessages.innerHTML = `<div class="chat-message"><span class="my-message"><h1>Chat</h1></span></div>`;
       ref.chat.classList.add('fade-out');
       ref.chat.classList.remove('fade-in');
@@ -183,6 +185,8 @@ ref.joinRedButton.addEventListener('mousedown', () => {
    if (state === 'chat' && !ref.joinRedButton.classList.contains('disabled')) {
       send({ type: 'join-team', team: 'red' });
       ref.joinBlueButton.classList.remove('disabled');
+      ref.joinGreenButton.classList.remove('disabled');
+      ref.joinYellowButton.classList.remove('disabled');
       // ref.joinRedButton.classList.add('disabled');
    }
 });
@@ -191,7 +195,29 @@ ref.joinBlueButton.addEventListener('mousedown', () => {
    if (state === 'chat' && !ref.joinBlueButton.classList.contains('disabled')) {
       send({ type: 'join-team', team: 'blue' });
       ref.joinRedButton.classList.remove('disabled');
+      ref.joinGreenButton.classList.remove('disabled');
+      ref.joinYellowButton.classList.remove('disabled');
       // ref.joinBlueButton.classList.add('disabled');
+   }
+});
+
+ref.joinGreenButton.addEventListener('mousedown', () => {
+   if (state === 'chat' && !ref.joinGreenButton.classList.contains('disabled')) {
+      send({ type: 'join-team', team: 'green' });
+      ref.joinRedButton.classList.remove('disabled');
+      ref.joinBlueButton.classList.remove('disabled');
+      ref.joinYellowButton.classList.remove('disabled');
+      // ref.joinGreenButton.classList.add('disabled');
+   }
+});
+
+ref.joinYellowButton.addEventListener('mousedown', () => {
+   if (state === 'chat' && !ref.joinYellowButton.classList.contains('disabled')) {
+      send({ type: 'join-team', team: 'yellow' });
+      ref.joinRedButton.classList.remove('disabled');
+      ref.joinBlueButton.classList.remove('disabled');
+      ref.joinGreenButton.classList.remove('disabled');
+      // ref.joinYellowButton.classList.add('disabled');
    }
 });
 
@@ -300,11 +326,23 @@ function serverMessage(msg, t) {
          roomData.teams.blue.forEach((id) => {
             ref.blueTeam.innerHTML += `<div class="player">${game.players[id].name}</div>`;
          });
+         ref.greenTeam.innerHTML = '';
+         roomData.teams.green.forEach((id) => {
+            ref.greenTeam.innerHTML += `<div class="player">${game.players[id].name}</div>`;
+         });
+         ref.yellowTeam.innerHTML = '';
+         roomData.teams.yellow.forEach((id) => {
+            ref.yellowTeam.innerHTML += `<div class="player">${game.players[id].name}</div>`;
+         });
 
          if (roomData.players[selfId].team === 'red') {
             ref.joinRedButton.classList.add('disabled');
          } else if (roomData.players[selfId].team === 'blue') {
             ref.joinBlueButton.classList.add('disabled');
+         } else if (roomData.players[selfId].team === 'green') {
+            ref.joinGreenButton.classList.add('disabled');
+         } else if (roomData.players[selfId].team === 'yellow') {
+            ref.joinYellowButton.classList.add('disabled');
          }
       }
       ref.playerCount.innerText = `${roomData.playerCount} / ${roomData.maxPlayers}`;
