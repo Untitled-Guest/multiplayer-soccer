@@ -39,8 +39,17 @@ function parseState(data, players) {
       if (team === 'red') {
          x = state.bound.width / 4;
          y = state.bound.height / 2;
-      } else {
+      } else if (team === 'blue') {
          x = state.bound.width / 2 + state.bound.width / 4;
+         y = state.bound.height / 2;
+      } else if (team === 'green') {
+         x = state.bound.width / 2;
+         y = state.bound.height / 4;
+      } else if (team === 'yellow') {
+         x = state.bound.width / 2;
+         y = state.bound.height / 2 + state.bound.height / 4;
+      } else {
+         x = state.bound.width / 2;
          y = state.bound.height / 2;
       }
       state.players[playerId] = {
