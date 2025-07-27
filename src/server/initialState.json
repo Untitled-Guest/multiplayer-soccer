@@ -29,14 +29,14 @@
       },
       "green": {
          "team": "green",
-         "x": 1590,
+         "x": 1690,
          "y": -198,
          "width": 400,
          "height": 200
       },
       "yellow": {
          "team": "yellow",
-         "x": 1590,
+         "x": 1690,
          "y": 978,
          "width": 400,
          "height": 200
