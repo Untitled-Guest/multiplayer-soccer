@@ -94,7 +94,7 @@ function offset(x, y, game, canvas) {
 
 function drawGoals(game, { ctx }) {
    for (const goal of Object.values(game.state().goals)) {
-      ctx.strokeStyle = goal.team === 'red' ? '#eb2d2d' : '#4157ba';
+      ctx.strokeStyle = goal.team === 'red' ? '#eb2d2d' : goal.team === 'blue' ? '#4157ba' : goal.team === 'green' ? '#2deb33' : '#ebe82d';
       const pos = offset(goal.x, goal.y, game, ctx.canvas);
       if (goal.team === 'red') {
          ctx.lineWidth = 8;
@@ -104,13 +104,29 @@ function drawGoals(game, { ctx }) {
          ctx.lineTo(pos.x, pos.y+goal.height);
          ctx.lineTo(pos.x+goal.width, pos.y + goal.height);
          ctx.stroke();
-      } else {
+      } else if (goal.team === 'blue') {
          ctx.lineWidth = 8;
          ctx.beginPath();
          ctx.lineTo(pos.x, pos.y);
          ctx.lineTo(pos.x+goal.width, pos.y);
          ctx.lineTo(pos.x+goal.width, pos.y+goal.height);
          ctx.lineTo(pos.x, pos.y + goal.height);
+         ctx.stroke();
+      } else if (goal.team === 'green') {
+         ctx.lineWidth = 8;
+         ctx.beginPath();
+         ctx.lineTo(pos.x, pos.y + goal.height);
+         ctx.lineTo(pos.x, pos.y);
+         ctx.lineTo(pos.x+goal.width, pos.y);
+         ctx.lineTo(pos.x+goal.width, pos.y+goal.height);
+         ctx.stroke();
+      } else if (goal.team === 'yellow') {
+         ctx.lineWidth = 8;
+         ctx.beginPath();
+         ctx.lineTo(pos.x+goal.width, pos.y);
+         ctx.lineTo(pos.x+goal.width, pos.y+goal.height);
+         ctx.lineTo(pos.x, pos.y + goal.height);
+         ctx.lineTo(pos.x, pos.y);
          ctx.stroke();
       }
       ctx.fillStyle = ctx.strokeStyle;
@@ -157,7 +173,7 @@ function drawPlayers(game, { ctx }) {
    for (const playerId of Object.keys(game.renderState.players)) {
       const player = game.renderState.players[playerId];
       ctx.beginPath();
-      ctx.strokeStyle = player.team === 'red' ? '#eb2d2d' : '#4157ba';
+      ctx.strokeStyle = player.team === 'red' ? '#eb2d2d' : player.team === 'blue' ? '#4157ba' : player.team === 'green' ? '#2deb33' : '#ebe82d';
       ctx.fillStyle = 'black';
       ctx.lineWidth = 10;
       if (player.shift) {
@@ -178,7 +194,7 @@ function drawPlayers(game, { ctx }) {
       if (!player.shift) {
          // ctx.globalAlpha = 0.5;
          ctx.beginPath();
-         ctx.strokeStyle = player.team === 'red' ? '#eb2d2d' : '#4157ba';
+         ctx.strokeStyle = player.team === 'red' ? '#eb2d2d' : player.team === 'blue' ? '#4157ba' : player.team === 'green' ? '#2deb33' : '#ebe82d';
          // ctx.strokeStyle = '#7303fc';
          ctx.lineWidth = 5;
          // ctx.arc(Math.round(pos.x), Math.round(pos.y), player.radius/2- ctx.lineWidth/2, 0, (Math.PI * 2) );
