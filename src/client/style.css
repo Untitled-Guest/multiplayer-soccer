@@ -166,6 +166,34 @@ body {
    width: 200px;
 }
 
+.join-green {
+   position: absolute;
+   left: calc(100vw - 50px - 200px);
+   top: calc(60vh - 50px);
+   height: 40px;
+   background-color: #9fc776;
+   color: black;
+   font-size: 1.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 200px;
+}
+
+.join-yellow {
+   position: absolute;
+   left: calc(100vw - 50px - 200px);
+   top: calc(60vh - 50px);
+   height: 40px;
+   background-color: #9fc776;
+   color: black;
+   font-size: 1.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 200px;
+}
+
 .player {
    background-color: white;
    /* width: 50vw; */
@@ -181,12 +209,29 @@ body {
 
 .blue-team {
    position: absolute;
-   left: calc(50vw + 50px);
+   left: calc(25vw + 50px);
    top: 60px;
    /* width: 50vw; */
    height: calc(60vh - 120px);
    background: linear-gradient(180deg, rgba(62, 110, 199, 0.644), rgba(0,0,0,0));
+}
 
+.green-team {
+   position: absolute;
+   left: calc(50vw + 50px);
+   top: 60px;
+   /* width: 50vw; */
+   height: calc(60vh - 120px);
+   background: linear-gradient(180deg, rgba(62, 199, 86, 0.644), rgba(0,0,0,0));
+}
+
+.yellow-team {
+   position: absolute;
+   left: calc(75vw + 50px);
+   top: 60px;
+   /* width: 50vw; */
+   height: calc(60vh - 120px);
+   background: linear-gradient(180deg, rgba(197, 199, 62, 0.644), rgba(0,0,0,0));
 }
 
 .overflow {
