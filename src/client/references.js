@@ -39,6 +39,10 @@ module.exports = {
    playersNotReady: document.querySelector('.players-not-ready'),
    redTeam: document.querySelector('.red-team'),
    blueTeam: document.querySelector('.blue-team'),
+   greenTeam: document.querySelector('.green-team'),
+   yellowTeam: document.querySelector('.yellow-team'),
    joinRedButton: document.querySelector('.join-red'),
    joinBlueButton: document.querySelector('.join-blue'),
+   joinGreenButton: document.querySelector('.join-green'),
+   joinYellowButton: document.querySelector('.join-yellow'),
 };
