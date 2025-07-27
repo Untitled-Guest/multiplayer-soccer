@@ -365,6 +365,7 @@ module.exports = class Room {
       return pack;
    }
    changeTeam(id, team) {
+      console.log(this.teams);
       this.update = true;
       if (team === 'red') {
          for (let i = 0; i < this.teams.red.length; i++) {
@@ -395,6 +396,7 @@ module.exports = class Room {
             }
          }
       }
+      console.log(this.teams);
       this.players[id].team = team;
       if (team === 'red') {
          this.teams.red.push(id);
@@ -405,6 +407,7 @@ module.exports = class Room {
       } else if (team === 'yellow') {
          this.teams.yellow.push(id);
       }
+      console.log(this.teams);
    }
    removePlayer(id) {
       this.update = true;
