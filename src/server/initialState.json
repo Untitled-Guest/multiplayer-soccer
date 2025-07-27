@@ -26,6 +26,20 @@
          "y": 290,
          "width": 200,
          "height": 400
+      },
+      "green": {
+         "team": "green",
+         "x": 1590,
+         "y": -198,
+         "width": 400,
+         "height": 200
+      },
+      "yellow": {
+         "team": "yellow",
+         "x": 1590,
+         "y": 978,
+         "width": 400,
+         "height": 200
       }
    },
    "players": {}
