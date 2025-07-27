@@ -95,10 +95,14 @@ module.exports = class Room {
       this.teams = {
          red: [],
          blue: [],
+         green: [],
+         yellow: [],
       };
       this.wins = {
          red: 0,
          blue: 0,
+         green: 0,
+         yellow: 0,
       };
       this.wonMatch = false;
    }
@@ -253,7 +257,7 @@ module.exports = class Room {
             if (!this.wonMatch) {
                this.wonMatch = true;
                this.wins[team] += 1;
-               this.talk('SERVER', `${team === 'blue' ? 'Red' : 'Blue'} team has won the game! (Red ${this.wins['blue']} - Blue ${this.wins['red']}) (Ball - ${this.states[this.tick + 1].winSpeed})`);
+               this.talk('SERVER', `${team} team has won the game! (Red ${this.wins['red']} - Blue ${this.wins['blue']} - Green ${this.wins['green']} - Yellow ${this.wins['yellow']}) (Ball - ${this.states[this.tick + 1].winSpeed})`);
             }
             // const scores = this.states[this.tick + 1].scores;
             // for (const id of Object.keys(scores)) {
@@ -353,23 +357,44 @@ module.exports = class Room {
    }
    changeTeam(id, team) {
       this.update = true;
-      this.players[id].team = team;
       if (team === 'red') {
-         for (let i = 0; i < this.teams.blue.length; i++) {
-            if (this.teams.blue[i] === id) {
-               this.teams.blue.splice(i, 1);
-               break;
-            }
-         }
-         this.teams.red.push(id);
-      } else if (team === 'blue') {
          for (let i = 0; i < this.teams.red.length; i++) {
             if (this.teams.red[i] === id) {
                this.teams.red.splice(i, 1);
                break;
             }
          }
+      } else if (team === 'blue') {
+         for (let i = 0; i < this.teams.blue.length; i++) {
+            if (this.teams.blue[i] === id) {
+               this.teams.blue.splice(i, 1);
+               break;
+            }
+         }
+      } else if (team === 'green') {
+         for (let i = 0; i < this.teams.green.length; i++) {
+            if (this.teams.green[i] === id) {
+               this.teams.green.splice(i, 1);
+               break;
+            }
+         }
+      } else if (team === 'yellow') {
+         for (let i = 0; i < this.teams.yellow.length; i++) {
+            if (this.teams.yellow[i] === id) {
+               this.teams.yellow.splice(i, 1);
+               break;
+            }
+         }
+      }
+      this.players[id].team = team;
+      if (team === 'red') {
+         this.teams.red.push(id);
+      } else if (team === 'blue') {
          this.teams.blue.push(id);
+      } else if (team === 'green') {
+         this.teams.green.push(id);
+      } else if (team === 'yellow') {
+         this.teams.yellow.push(id);
       }
    }
    removePlayer(id) {
