@@ -366,28 +366,29 @@ module.exports = class Room {
    }
    changeTeam(id, team) {
       this.update = true;
-      if (team === 'red') {
+      const tempteam = this.players[id].team;
+      if (tempteam === 'red') {
          for (let i = 0; i < this.teams.red.length; i++) {
             if (this.teams.red[i] === id) {
                this.teams.red.splice(i, 1);
                break;
             }
          }
-      } else if (team === 'blue') {
+      } else if (tempteam === 'blue') {
          for (let i = 0; i < this.teams.blue.length; i++) {
             if (this.teams.blue[i] === id) {
                this.teams.blue.splice(i, 1);
                break;
             }
          }
-      } else if (team === 'green') {
+      } else if (tempteam === 'green') {
          for (let i = 0; i < this.teams.green.length; i++) {
             if (this.teams.green[i] === id) {
                this.teams.green.splice(i, 1);
                break;
             }
          }
-      } else if (team === 'yellow') {
+      } else if (tempteam === 'yellow') {
          for (let i = 0; i < this.teams.yellow.length; i++) {
             if (this.teams.yellow[i] === id) {
                this.teams.yellow.splice(i, 1);

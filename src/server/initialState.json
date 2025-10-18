@@ -1,7 +1,7 @@
 {
    "ball": {
       "x": 1890,
-      "y": 490,
+      "y": 1890,
       "radius": 30,
       "xv": 0,
       "yv": 0
@@ -10,34 +10,34 @@
       "x": 0,
       "y": 0,
       "width": 3780,
-      "height": 980
+      "height": 3780
    },
    "goals": {
       "red": {
          "team": "red",
          "x": -198,
-         "y": 290,
+         "y": 1690,
          "width": 200,
          "height": 400
       },
       "blue": {
          "team": "blue",
          "x": 3778,
-         "y": 290,
+         "y": 1690,
          "width": 200,
          "height": 400
       },
       "green": {
          "team": "green",
-         "x": 1590,
+         "x": 1690,
          "y": -198,
          "width": 400,
          "height": 200
       },
       "yellow": {
          "team": "yellow",
-         "x": 1590,
-         "y": 978,
+         "x": 1690,
+         "y": 3778,
          "width": 400,
          "height": 200
       }
