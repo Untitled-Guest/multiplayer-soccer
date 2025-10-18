@@ -156,7 +156,7 @@ module.exports = function simulate(oldState, inputs) {
          const player2 = state.players[j];
          const distX = player1.x - player2.x;
          const distY = player1.y - player2.y;
-         if (distX * distX + distY * distY < player1.radius * 2 * (player2.radius * 2)) {
+         if (distX * distX + distY * distY < player1.radius * player1.radius + 2 * player1.radius * player2.radius + player2.radius * player2.radius) {
             const magnitude = Math.sqrt(distX * distX + distY * distY) || 1;
             const xv = distX / magnitude;
             const yv = distY / magnitude;
