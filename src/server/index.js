@@ -83,17 +83,6 @@ wss.on('connection', (socket, _request) => {
       }
       delete clients[clientId];
    });
-
-   socket.on('error', () => {
-      console.log('client error', clientId);
-      if (clients[clientId].state === 'in-game') {
-         const room = state.rooms[clients[clientId].roomId];
-         if (room !== undefined) {
-            room.removePlayer(clientId);
-         }
-      }
-      delete clients[clientId];
-   });
 });
 
 // room update loop
